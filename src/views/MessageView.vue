@@ -49,17 +49,24 @@
                 <div v-if="currentChat && currentChat.length" class="px-20 text-sm">
 
                     <div v-for="msg in currentChat[0].messages" :key="msg">
-                        <div v-if="msg.sub === sub" class="flex w-[calc(100%-50px)]">
+
+                      <div v-if="msg.sub === sub" class="flex justify-end space-x-1 w-[calc(100%-50px)] float-right">
+                        <div class="inline-block bg-green-200 p-2 rounded-md my-1">
+                          {{ msg.message }}
+                        </div>
+                      </div>
+
+                        <div v-else class="flex w-[calc(100%-50px)]">
                             <div class="inline-block bg-white p-2 rounded-md my-1">
                                 {{ msg.message }}
                             </div>
                         </div>
 
-                        <div v-else class="flex justify-end space-x-1 w-[calc(100%-50px)] float-right">
-                            <div class="inline-block bg-green-200 p-2 rounded-md my-1">
-                                {{ msg.message }}
-                            </div>
-                        </div>
+<!--                        <div v-else class="flex justify-end space-x-1 w-[calc(100%-50px)] float-right">-->
+<!--                            <div class="inline-block bg-green-200 p-2 rounded-md my-1">-->
+<!--                                {{ msg.message }}-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
 
                 </div>
@@ -163,7 +170,7 @@ const sendMessage = async () => {
 <style>
 #BG {
     background: url('/message-bg.png') no-repeat center;
-    width: 100%;
+    width: 80%;
     height: 100%;
     position: fixed;
     z-index: -1;
